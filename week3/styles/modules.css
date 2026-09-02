@@ -1,0 +1,204 @@
+Here is the complete week3/styles/modules.css with every design decision annotated using the three-part educational structure: CSS
+/* ==========================================================================
+   PART 1: RESET & BASE CANVAS
+   ========================================================================== */
+
+/* 
+  What/Why/Purpose: Universal sizing box reset.
+  The Logic: Tells the browser to include borders and padding inside the width/height of elements.
+  The "Aha!" Learning Gap: By default, adding 10px of padding to a 100px box makes it 120px wide, which causes elements to blow out of bounds. This line prevents unexpected layout bugs.
+*/
+* {
+    box-sizing: border-box;
+}
+
+/* 
+  What/Why/Purpose: Sets page-wide typography, centering boundaries, and background tint.
+  The Logic: 
+    - Arial provides a clean, modern sans-serif readable font.
+    - 'margin: 2rem auto' centers the whole page horizontally with top/bottom breathing room.
+    - 'max-width: 650px' prevents lines of text from stretching too wide on wide monitors.
+  The "Aha!" Learning Gap: Without a max-width, web pages on widescreen monitors stretch to the edges, making lines difficult to read.
+*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem auto;
+    max-width: 650px;
+    padding: 0 1rem;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* 
+  What/Why/Purpose: Card container that frames our tool.
+  The Logic: A crisp white surface, rounded corners (border-radius), and a soft shadow give depth.
+  The "Aha!" Learning Gap: Stacking a pure white card over an off-white (#f9f9f9) background naturally draws the user's focus to the interactive app area.
+*/
+main {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 
+  What/Why/Purpose: Course header typography.
+  The Logic: Centers titles and tones down the subheader with a slightly muted gray.
+*/
+h1,
+h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+h2 {
+    color: #555;
+}
+
+
+/* ==========================================================================
+   PART 2: CONTROLS & ACTION BUTTONS
+   ========================================================================== */
+
+/* 
+  What/Why/Purpose: Label readability and spacing.
+  The Logic: 'display: block' forces the label to sit on its own line above the dropdown.
+  The "Aha!" Learning Gap: Default labels sit inline side-by-side with inputs, creating awkward horizontal spacing without block treatment.
+*/
+label {
+    font-weight: bold;
+    display: block;
+    margin: 1rem 0 0.5rem;
+}
+
+/* 
+  What/Why/Purpose: Touch-friendly dropdown menu.
+  The Logic: 'width: 100%' stretches the picker across the entire card for easy clicking/tapping.
+*/
+select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* 
+  What/Why/Purpose: Side-by-side button placement.
+  The Logic: Flexbox with 'gap: 1rem' automatically places the buttons next to each other with equal spacing between them.
+  The "Aha!" Learning Gap: Replaces old float hacks and manual child margin math.
+*/
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 
+  What/Why/Purpose: Primary call-to-action button styling.
+  The Logic: 
+    - 'flex: 1' tells both buttons to expand equally to each fill 50% of the row width.
+    - 'cursor: pointer' changes the mouse arrow to a pointing hand, signaling it is clickable.
+*/
+button {
+    flex: 1;
+    padding: 0.6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+/* 
+  What/Why/Purpose: Interactive hover feedback.
+  The Logic: Darkens the blue background when the mouse hovers over the button.
+  The "Aha!" Learning Gap: Providing instant visual feedback lets users know the interface has registered their interaction.
+*/
+button:hover {
+    background-color: #003d82;
+}
+
+
+/* ==========================================================================
+   PART 3: DATA TABLE PRESENTATION
+   ========================================================================== */
+
+/* 
+  What/Why/Purpose: Structured data grid.
+  The Logic: 'border-collapse: collapse' eliminates default double-line gaps between table cell borders.
+  The "Aha!" Learning Gap: By default, browser tables draw two separate borders around adjacent cells. 'collapse' merges them into a clean single line.
+*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+/* 
+  What/Why/Purpose: Table cell readability.
+  The Logic: Padding stops text from bumping into borders, and a bottom border provides clean row dividers.
+*/
+th,
+td {
+    padding: 0.6rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+/* 
+  What/Why/Purpose: Header visual hierarchy.
+  The Logic: A light gray background separates the column labels from dynamic student row data.
+*/
+th {
+    background-color: #f1f1f1;
+}
+
+
+/* ==========================================================================
+   PART 4: ARCHITECTURE RECAP CALLOUT CARD
+   ========================================================================== */
+
+/* 
+  What/Why/Purpose: Distinct educational callout box.
+  The Logic: Soft blue background (#eef4f8) paired with a solid left border (#0056b3) creates a note or alert card layout.
+  The "Aha!" Learning Gap: A left accent border visually separates documentation from the interactive application itself.
+*/
+.architecture-recap {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background-color: #eef4f8;
+    border-left: 4px solid #0056b3;
+    border-radius: 4px;
+}
+
+.architecture-recap h3 {
+    margin-top: 0;
+    color: #003d82;
+    font-size: 1.1rem;
+}
+
+.architecture-recap p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.architecture-recap ul {
+    margin: 0.5rem 0 0 1.2rem;
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* 
+  What/Why/Purpose: Inline code badge appearance.
+  The Logic: Applies a monospaced font, pill background, and bold weight to file names (like course.mjs).
+*/
+.architecture-recap code {
+    background-color: #dce7f1;
+    padding: 0.15rem 0.35rem;
+    border-radius: 3px;
+    font-family: monospace;
+    font-weight: bold;
+}

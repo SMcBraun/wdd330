@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Enrollment - ES Modules</title>
+
+    <!-- 
+    What it is: Connecting the design sheet.
+    Why we need it: HTML by itself looks like plain 1995 black-and-white text. This file styles it to look like a modern app card.
+    The "Aha!" Learning Gap: By keeping the styling in its own CSS file, we never clutter our main structure.
+  -->
+    <link rel="stylesheet" href="styles/modules.css">
+
+    <!-- 
+    What it is: Turning our main JavaScript engine on.
+    Why we need it: 'type="module"' gives the browser special permission to let JavaScript files share code with each other using "import" and "export".
+    The "Aha!" Learning Gap: In older setups, everything had to be in one huge, messy JavaScript file. 'type="module"' lets us break that giant mess into neat little files.
+  -->
+    <script type="module" src="scripts/modules.mjs"></script>
+</head>
+
+<body>
+    <!-- 
+    What it is: The central box that holds our entire widget.
+  -->
+    <main>
+        <!-- These start empty. JavaScript will write the course name and code into them as soon as the page loads. -->
+        <h1 id="courseName"></h1>
+        <h2 id="courseCode"></h2>
+
+        <!-- 
+      What it is: The dropdown picker.
+      Why we need it: Notice that the <select> tag has nothing inside it. We leave it empty here on purpose because our JavaScript is going to build the dropdown options automatically from our data.
+      The "Aha!" Learning Gap: If a new section gets added to the class next week, we never have to touch this HTML file—our script will build it automatically.
+    -->
+        <label for="sectionNumber">Select Section:</label>
+        <select id="sectionNumber"></select>
+
+        <!-- 
+      What it is: Two simple buttons.
+      Why we need it: We use normal buttons instead of a traditional form because forms refresh the entire web page when clicked. We want to update the numbers instantly without reloading the page.
+    -->
+        <div class="buttons">
+            <button id="enrollStudent">Enroll Student</button>
+            <button id="dropStudent">Drop Student</button>
+        </div>
+
+        <!-- 
+      What it is: The table grid.
+      Why we need it: The header shows what the columns mean. The <tbody> is left totally empty because our script will drop the rows of student numbers in there dynamically.
+    -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Section</th>
+                    <th>Room</th>
+                    <th>Enrolled</th>
+                    <th>Days</th>
+                    <th>Instructor</th>
+                </tr>
+            </thead>
+            <tbody id="sections"></tbody>
+        </table>
+        <!-- ==========================================================================
+         ARCHITECTURAL RECAP: CONNECTING THE DOTS
+         ========================================================================== -->
+        <aside class="architecture-recap">
+            <h3>Connecting the Dots: What Just Happened?</h3>
+            <p><strong>Before:</strong> A single file did everything—stored data, created HTML tags, listened for
+                clicks, and drew tables. If something broke, finding the issue was a headache.</p>
+
+            <p><strong>Now:</strong> Each module has one clear responsibility:</p>
+            <ul>
+                <li><strong>Need to change the teacher or enrollment numbers?</strong> Go to <code>course.mjs</code>
+                    (The Pantry).</li>
+                <li><strong>Need to change how dropdown options look?</strong> Go to <code>sections.mjs</code> (The Menu
+                    Maker).</li>
+                <li><strong>Need to add a new column to your table?</strong> Go to <code>output.mjs</code> (The Server /
+                    Plater).</li>
+                <li><strong>Need to add a new button or event?</strong> Go to <code>modules.mjs</code> (The Manager /
+                    Conductor).</li>
+            </ul>
+        </aside>
+    </main>
+</body>
+
+</html>
