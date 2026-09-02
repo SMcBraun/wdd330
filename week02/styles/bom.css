@@ -1,0 +1,96 @@
+/* ==========================================================================
+   PART 1: GLOBAL & PAGE SETUP
+   ========================================================================== */
+
+/* 
+  Logic: Sets standard sizing calculations across the whole page.
+  Talking point: "I start by setting box-sizing to border-box so padding doesn't mess up widths."
+*/
+* {
+    box-sizing: border-box;
+}
+
+/* 
+  Logic: Centers the entire app on the screen and uses a clean font.
+  Talking point: "Here, I set a clean Arial font, center the whole page, and cap the width so it looks great on desktop and mobile."
+*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem auto;
+    max-width: 450px;
+    padding: 0 1rem;
+}
+
+/* 
+  Logic: Centers the title at the top of the card.
+  Talking point: "Next, I center our header text."
+*/
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+
+/* ==========================================================================
+   PART 2: FORM & CONTROLS LAYOUT
+   ========================================================================== */
+
+/* 
+  Logic: Stacks the input field and button neatly on top of one another.
+  Talking point: "I use a flex column layout on the main container to stack our input controls neatly with a little breathing room."
+*/
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* 
+  Logic: Makes the text field and button easy to read and click.
+  Talking point: "I add padding to the input box and button so they are larger and easier to tap."
+*/
+input,
+button {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+
+/* ==========================================================================
+   PART 3: SCRIPTURE LIST ROWS
+   ========================================================================== */
+
+/* 
+  Logic: Erases the default black bullet points and margin from the <ul>.
+  Talking point: "For the unordered list, I remove the default bullet points and standard browser padding."
+*/
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+/* 
+  Logic: Formats each chapter into a light gray pill row with the delete button pushed to the right.
+  Talking point: "Each list row gets a light gray background, rounded edges, and space-between alignment so the delete icon sits cleanly on the right."
+*/
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #f1f1f1;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+/* 
+  Logic: Strips the default button border from the ❌ icon so it looks like a clean icon.
+  Talking point: "Finally, I remove the standard button border from the X icon so it shows up as a clean clickable symbol."
+*/
+li button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}

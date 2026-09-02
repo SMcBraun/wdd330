@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic settings: handles standard text characters and makes the page fit phone/computer screens -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Top 10</title>
+
+    <!-- Connects the design file (CSS) so our page looks nice and styled -->
+    <link rel="stylesheet" href="styles/bom.css">
+
+    <!-- 
+    Connects our JavaScript logic file.
+    'defer' means: "Wait until the HTML is drawn on screen before running the script."
+  -->
+    <script src="scripts/bom.js" defer></script>
+</head>
+
+<body>
+
+    <!-- The main title at the top of the page -->
+    <h1>📖 Book of Mormon - Top 10</h1>
+
+    <main>
+        <!-- 
+      The text box area:
+      - The <label> is the visible text telling the user what to type.
+      - 'for="favchap"' connects the label to the text box. If you click the text, the cursor jumps into the box.
+      - The <input> is the typing box. 'placeholder' is the light gray example text ("Alma 5").
+    -->
+        <label for="favchap">Enter Book and Chapter: </label>
+        <input type="text" id="favchap" placeholder="Alma 5">
+
+        <!-- The button the user clicks to submit their favorite chapter -->
+        <button type="submit">Add Chapter</button>
+
+        <!-- 
+      The empty list:
+      - This starts blank. 
+      - Our JavaScript will drop each new chapter into this container one by one.
+    -->
+        <ul id="list"></ul>
+    </main>
+
+</body>
+
+</html>
